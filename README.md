@@ -2,10 +2,27 @@
 
 [![Status: Live](https://img.shields.io/badge/status-live-22c55e.svg)](https://github.com/agenticph-labs/p2-ph-market-intelligence)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Tests](https://github.com/agenticph-labs/p2-ph-market-intelligence/actions/workflows/test.yml/badge.svg)](https://github.com/agenticph-labs/p2-ph-market-intelligence/actions/workflows/test.yml)
+[![Security](https://github.com/agenticph-labs/p2-ph-market-intelligence/actions/workflows/security.yml/badge.svg)](https://github.com/agenticph-labs/p2-ph-market-intelligence/actions/workflows/security.yml)
+[![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/downloads/)
 
 An interactive market intelligence dashboard analyzing the Philippine coffee shop industry. Built with Python (pandas, plotly, Streamlit) as part of the agenticPH Labs portfolio.
 
-## 📊 Dashboard Features
+---
+
+## Table of Contents
+
+- [Dashboard Features](#dashboard-features)
+- [Project Structure](#project-structure)
+- [Getting Started](#getting-started)
+- [Key Findings](#key-findings)
+- [Methodology](#methodology)
+- [Contributing](#contributing)
+- [License](#license)
+
+---
+
+## Dashboard Features
 
 | Page | Description |
 |------|-------------|
@@ -15,14 +32,19 @@ An interactive market intelligence dashboard analyzing the Philippine coffee sho
 | **Pricing Analysis** | Menu price comparison, price ladders, value gap analysis |
 | **Key Insights** | 13 data-driven business observations + methodology |
 
-## 📁 Project Structure
+---
+
+## Project Structure
 
 ```
-p2-ph-market-intel/
+p2-ph-market-intelligence/
+├── .github/workflows/
+│   ├── test.yml              # CI — ruff lint + import/smoke tests
+│   └── security.yml           # bandit + safety scans
 ├── data/
-│   ├── raw/              # Raw data generation script
+│   ├── raw/                  # Raw data generation script
 │   │   └── coffee_shop_data.py
-│   └── processed/        # Cleaned CSVs, summaries, insights
+│   └── processed/            # Cleaned CSVs, summaries, insights
 │       ├── market_overview_clean.csv
 │       ├── competitors_clean.csv
 │       ├── pricing_data_clean.csv
@@ -30,16 +52,19 @@ p2-ph-market-intel/
 │       ├── pricing_summary.csv
 │       ├── competitor_summary.json
 │       └── business_insights.md
-├── viz/                  # 13 interactive Plotly HTML charts
-├── pipeline.py           # Data pipeline (clean → transform → analyze → export)
-├── dashboard.py          # Streamlit dashboard application
+├── viz/                      # 13 interactive Plotly HTML charts
+├── pipeline.py               # Data pipeline (clean → transform → analyze → export)
+├── dashboard.py              # Streamlit dashboard application
 ├── requirements.txt
 └── README.md
 ```
 
-## 🚀 Getting Started
+---
+
+## Getting Started
 
 ### Prerequisites
+
 - Python 3.10+
 - pip or uv
 
@@ -62,7 +87,9 @@ python3 pipeline.py
 streamlit run dashboard.py
 ```
 
-## 📈 Key Findings
+---
+
+## Key Findings
 
 | Finding | Detail |
 |---------|--------|
@@ -75,7 +102,9 @@ streamlit run dashboard.py
 | **Consumer Habits** | **80%** of Filipino adults drink **2.5 cups/day**; **90%** of households stock coffee |
 | **Franchising Boom** | **6 of 8** major chains offer franchising, driving rapid geographic expansion |
 
-## 🛠️ Methodology
+---
+
+## Methodology
 
 1. **Data Collection** — Public data from Euromonitor, USDA, Statista, company filings, news reports, and store locator websites (2024–2026)
 2. **Data Pipeline** — pandas-based cleaning, transformation, derived metrics (YoY growth, CAGR, import dependency)
@@ -83,14 +112,23 @@ streamlit run dashboard.py
 4. **Visualization** — 13 interactive Plotly charts
 5. **Dashboard** — Multi-page Streamlit dashboard
 
-## 🎯 Industry: Coffee Shops
+---
 
-Selected the **Philippine coffee shop industry** for its dynamic growth, clear market segmentation (premium vs. value), strong franchising tailwinds, and publicly available competitive data. The sector reflects broader PH consumer trends: urbanization, digital adoption, and value-conscious premiumization.
+## Contributing
 
-## 📝 License
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feat/my-feature`
+3. Install dev dependencies: `pip install -r requirements.txt && pip install ruff bandit`
+4. Lint with ruff: `ruff check *.py`
+5. Run the pipeline: `python pipeline.py`
+6. Push and open a pull request
+
+---
+
+## License
 
 MIT — See [LICENSE](LICENSE)
 
-## 👤 Author
+---
 
-**agenticPH Labs** — [Portfolio Project 2](https://agenticph-labs.github.io/portfolio)
+*Portfolio Project 2 — [AgenticPH Labs](https://agenticph-labs.github.io/portfolio)*
