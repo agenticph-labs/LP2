@@ -5,20 +5,51 @@
 [![Tests](https://github.com/agenticph-labs/p2-ph-market-intelligence/actions/workflows/test.yml/badge.svg)](https://github.com/agenticph-labs/p2-ph-market-intelligence/actions/workflows/test.yml)
 [![Security](https://github.com/agenticph-labs/p2-ph-market-intelligence/actions/workflows/security.yml/badge.svg)](https://github.com/agenticph-labs/p2-ph-market-intelligence/actions/workflows/security.yml)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/downloads/)
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://p2-ph-market-intelligence.streamlit.app)
 
-An interactive market intelligence dashboard analyzing the Philippine coffee shop industry. Built with Python (pandas, plotly, Streamlit) as part of the agenticPH Labs portfolio.
+An interactive market intelligence dashboard analyzing the Philippine coffee shop industry. Built with Python (pandas, plotly, Streamlit) as part of the [AgenticPH Labs](https://agenticph-labs.github.io/portfolio) portfolio.
+
+> **Live demo:** [p2-ph-market-intelligence.streamlit.app](https://p2-ph-market-intelligence.streamlit.app)
 
 ---
 
 ## Table of Contents
 
+- [PH Use Case](#ph-use-case)
 - [Dashboard Features](#dashboard-features)
 - [Project Structure](#project-structure)
 - [Getting Started](#getting-started)
 - [Key Findings](#key-findings)
 - [Methodology](#methodology)
+- [Deployment](#deployment)
 - [Contributing](#contributing)
 - [License](#license)
+
+---
+
+## PH Use Case
+
+### Why This Matters for Philippine Businesses
+
+The Philippine coffee shop market is projected to grow from **$1.82B (2025) to $2.30B (2028)** at a **7.3% CAGR** — one of Southeast Asia's fastest-growing food-service segments. This dashboard turns raw market data into actionable intelligence for:
+
+| Stakeholder | How They Use This |
+|-------------|-------------------|
+| **Coffee Shop Owners / Franchisees** | Competitive pricing analysis, regional saturation maps, menu positioning strategy |
+| **Investors / VCs** | Market sizing, growth rate comparison, franchise opportunity assessment |
+| **Suppliers & Distributors** | Regional demand mapping, import dependency insights (94.3% imported), growth corridor identification |
+| **Real Estate Professionals** | Geographic density heatmaps for site selection, underserved city identification |
+| **Business Students / Researchers** | Methodology reference, market trend analysis, data pipeline blueprint |
+
+### Key PH Market Insights
+
+- **Metro Manila** dominates but is nearing saturation — Visayas (21%) and Mindanao (16%) are underserved growth corridors
+- **Value segment** (Pickup Coffee, Zus Coffee) is growing at **100%+ YoY** vs. premium segment at ~10-15%
+- **Franchising** drives expansion — 6 of 8 major chains offer franchise models
+- **Import dependency** (94.3%) presents opportunity for local roasters and suppliers
+- **Per-capita consumption** is 2.5 cups/day among 80% of Filipino adults — extremely high engagement
+
+Use this dashboard to identify market gaps, validate expansion strategies, and benchmark against competitors.
 
 ---
 
@@ -41,6 +72,8 @@ p2-ph-market-intelligence/
 ├── .github/workflows/
 │   ├── test.yml              # CI — ruff lint + import/smoke tests
 │   └── security.yml           # bandit + safety scans
+├── .streamlit/
+│   └── config.toml           # Streamlit Cloud configuration
 ├── data/
 │   ├── raw/                  # Raw data generation script
 │   │   └── coffee_shop_data.py
@@ -52,9 +85,12 @@ p2-ph-market-intelligence/
 │       ├── pricing_summary.csv
 │       ├── competitor_summary.json
 │       └── business_insights.md
+├── scripts/
+│   └── start.bat             # Windows startup script (venv + install + launch)
 ├── viz/                      # 13 interactive Plotly HTML charts
 ├── pipeline.py               # Data pipeline (clean → transform → analyze → export)
 ├── dashboard.py              # Streamlit dashboard application
+├── app.py                    # Convenience entry point (same as dashboard.py)
 ├── requirements.txt
 └── README.md
 ```
@@ -87,6 +123,10 @@ python3 pipeline.py
 streamlit run dashboard.py
 ```
 
+### Windows Quick Start
+
+Double-click `scripts/start.bat` — it handles venv creation, dependency installation, dashboard launch, and opens your browser automatically.
+
 ---
 
 ## Key Findings
@@ -114,6 +154,23 @@ streamlit run dashboard.py
 
 ---
 
+## Deployment
+
+### Streamlit Cloud (Recommended)
+
+This app is deployed on Streamlit Community Cloud:
+
+1. Fork/clone the repository
+2. Go to [share.streamlit.io](https://share.streamlit.io)
+3. Connect your GitHub account
+4. Select this repository
+5. Set **Main file path** to `dashboard.py`
+6. Deploy — the `.streamlit/config.toml` is pre-configured
+
+The deployed app is available at: **[p2-ph-market-intelligence.streamlit.app](https://p2-ph-market-intelligence.streamlit.app)**
+
+---
+
 ## Contributing
 
 1. Fork the repository
@@ -131,4 +188,5 @@ MIT — See [LICENSE](LICENSE)
 
 ---
 
-*Portfolio Project 2 — [AgenticPH Labs](https://agenticph-labs.github.io/portfolio)*
+*Portfolio Project 2 — [AgenticPH Labs](https://agenticph-labs.github.io/portfolio)*  
+*Built by [AgenticPH Labs](https://agenticph-labs.github.io/portfolio) — market intelligence tools for Philippine business decisions*
