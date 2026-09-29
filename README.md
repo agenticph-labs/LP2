@@ -1,4 +1,4 @@
-# ☕ Philippine Coffee Shop Market Intelligence Dashboard
+# LP2: PH Market Intelligence
 
 [![Status: Live](https://img.shields.io/badge/status-live-22c55e.svg)](https://github.com/agenticph-labs/LP2)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
@@ -188,5 +188,5 @@ MIT — See [LICENSE](LICENSE)
 
 ---
 
-*Portfolio Project 2 — [AgenticPH Labs](https://agenticph-labs.github.io/portfolio)*  
-*Built by [AgenticPH Labs](https://agenticph-labs.github.io/portfolio) — market intelligence tools for Philippine business decisions*
+*Portfolio Project 2 — [AgenticPH](https://agenticph-labs.github.io/portfolio)*  
+*Built by [AgenticPH](https://agenticph-labs.github.io/portfolio) — market intelligence tools for Philippine business decisions*
