@@ -281,7 +281,7 @@ elif choice == "📈 Key Insights & Methodology":
 
     ### Repository Structure
     ```
-    p2-ph-market-intel/
+    LP2/
     ├── data/
     │   ├── raw/        # Raw CSV generation script
     │   └── processed/  # Cleaned CSVs, summary JSON, insights markdown

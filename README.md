@@ -1,15 +1,15 @@
 # ☕ Philippine Coffee Shop Market Intelligence Dashboard
 
-[![Status: Live](https://img.shields.io/badge/status-live-22c55e.svg)](https://github.com/agenticph-labs/p2-ph-market-intelligence)
+[![Status: Live](https://img.shields.io/badge/status-live-22c55e.svg)](https://github.com/agenticph-labs/LP2)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Tests](https://github.com/agenticph-labs/p2-ph-market-intelligence/actions/workflows/test.yml/badge.svg)](https://github.com/agenticph-labs/p2-ph-market-intelligence/actions/workflows/test.yml)
-[![Security](https://github.com/agenticph-labs/p2-ph-market-intelligence/actions/workflows/security.yml/badge.svg)](https://github.com/agenticph-labs/p2-ph-market-intelligence/actions/workflows/security.yml)
+[![Tests](https://github.com/agenticph-labs/LP2/actions/workflows/test.yml/badge.svg)](https://github.com/agenticph-labs/LP2/actions/workflows/test.yml)
+[![Security](https://github.com/agenticph-labs/LP2/actions/workflows/security.yml/badge.svg)](https://github.com/agenticph-labs/LP2/actions/workflows/security.yml)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/downloads/)
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://p2-ph-market-intelligence.streamlit.app)
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://LP2.streamlit.app)
 
 An interactive market intelligence dashboard analyzing the Philippine coffee shop industry. Built with Python (pandas, plotly, Streamlit) as part of the [AgenticPH Labs](https://agenticph-labs.github.io/portfolio) portfolio.
 
-> **Live demo:** [p2-ph-market-intelligence.streamlit.app](https://p2-ph-market-intelligence.streamlit.app)
+> **Live demo:** [LP2.streamlit.app](https://LP2.streamlit.app)
 
 ---
 
@@ -68,7 +68,7 @@ Use this dashboard to identify market gaps, validate expansion strategies, and b
 ## Project Structure
 
 ```
-p2-ph-market-intelligence/
+LP2/
 ├── .github/workflows/
 │   ├── test.yml              # CI — ruff lint + import/smoke tests
 │   └── security.yml           # bandit + safety scans
@@ -108,8 +108,8 @@ p2-ph-market-intelligence/
 
 ```bash
 # Clone the repository
-git clone https://github.com/agenticph-labs/p2-ph-market-intelligence.git
-cd p2-ph-market-intelligence
+git clone https://github.com/agenticph-labs/LP2.git
+cd LP2
 
 # Create virtual environment and install dependencies
 python3 -m venv .venv
@@ -167,7 +167,7 @@ This app is deployed on Streamlit Community Cloud:
 5. Set **Main file path** to `dashboard.py`
 6. Deploy — the `.streamlit/config.toml` is pre-configured
 
-The deployed app is available at: **[p2-ph-market-intelligence.streamlit.app](https://p2-ph-market-intelligence.streamlit.app)**
+The deployed app is available at: **[LP2.streamlit.app](https://LP2.streamlit.app)**
 
 ---
 
