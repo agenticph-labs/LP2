@@ -7,6 +7,8 @@
 [![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/downloads/)
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://LP2.streamlit.app)
 
+🌱 **Built in the open, for the open.** A community intelligence tool by Filipino builders — turning data into insights anyone can use, reuse, and build upon.
+
 An interactive market intelligence dashboard analyzing the Philippine coffee shop industry. Built with Python (pandas, plotly, Streamlit) as part of the [AgenticPH Labs](https://agenticph-labs.github.io/portfolio) portfolio.
 
 > **Live demo:** [LP2.streamlit.app](https://LP2.streamlit.app)
@@ -188,5 +190,5 @@ MIT — See [LICENSE](LICENSE)
 
 ---
 
-*Portfolio Project 2 — [AgenticPH](https://agenticph-labs.github.io/portfolio)*  
-*Built by [AgenticPH](https://agenticph-labs.github.io/portfolio) — market intelligence tools for Philippine business decisions*
+*Built in the open, for the open.*  
+*[AgenticPH Labs](https://agenticph-labs.github.io/portfolio) — Filipino builders crafting practical market intelligence for the Philippines.*
