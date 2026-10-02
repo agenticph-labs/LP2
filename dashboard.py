@@ -4,13 +4,12 @@ PH Coffee Shop Market Intelligence — Interactive Streamlit Dashboard
 Run: streamlit run dashboard.py
 """
 
-import streamlit as st
+import json
+from pathlib import Path
+
 import pandas as pd
 import plotly.express as px
-import plotly.graph_objects as go
-from pathlib import Path
-import json
-import base64
+import streamlit as st
 
 st.set_page_config(
     page_title="PH Coffee Market Intelligence",
@@ -72,7 +71,7 @@ st.sidebar.markdown("**Data Sources**")
 st.sidebar.markdown("Euromonitor, USDA, Statista, World Coffee Portal, company filings, news reports (2024–2026)")
 st.sidebar.markdown("---")
 st.sidebar.markdown("**Industry: Coffee Shops**")
-st.sidebar.markdown(f"**8 major chains** tracked")
+st.sidebar.markdown("**8 major chains** tracked")
 st.sidebar.markdown(f"**{df_price['drink'].nunique()} menu items** priced")
 st.sidebar.markdown(f"**{len(df_geo)} city/province areas** mapped")
 
@@ -87,7 +86,7 @@ if choice == "📊 Market Overview":
     latest = df_market.iloc[-1]
     col1.metric("Market Size (2028E)", f"${latest['market_size_billion_usd']:.2f}B",
                 f"{latest['yoy_growth_pct']:.1f}% YoY")
-    col2.metric("Café/Bar Sales (2026E)", f"$1.86B",
+    col2.metric("Café/Bar Sales (2026E)", "$1.86B",
                 "7.1% YoY")
     col3.metric("Total Outlets (2028E)", f"{latest['total_coffee_outlets_estimate']:,.0f}",
                 f"+{latest['specialist_coffee_shops_outlets'] - df_market.iloc[-2]['specialist_coffee_shops_outlets']} specialist")
@@ -101,16 +100,16 @@ if choice == "📊 Market Overview":
         fig = px.line(df_market, x="year", y="market_size_billion_usd",
                       title="Market Size (Billion USD)",
                       markers=True, template="plotly_white")
-        fig.update_traces(line=dict(width=3, color="#4A2C2A"))
-        fig.update_layout(yaxis_title="Billion USD", xaxis=dict(dtick=1))
+        fig.update_traces(line={"width": 3, "color": "#4A2C2A"})
+        fig.update_layout(yaxis_title="Billion USD", xaxis={"dtick": 1})
         st.plotly_chart(fig, use_container_width=True)
 
     with col2:
         fig2 = px.line(df_market, x="year", y="cafes_bars_sales_billion_usd",
                        title="Café & Bar Sales (Billion USD)",
                        markers=True, template="plotly_white")
-        fig2.update_traces(line=dict(width=3, color="#8B4513"))
-        fig2.update_layout(yaxis_title="Billion USD", xaxis=dict(dtick=1))
+        fig2.update_traces(line={"width": 3, "color": "#8B4513"})
+        fig2.update_layout(yaxis_title="Billion USD", xaxis={"dtick": 1})
         st.plotly_chart(fig2, use_container_width=True)
 
     col1, col2 = st.columns(2)

@@ -4,7 +4,8 @@ PH Coffee Shop Market Intelligence — Raw Data Collector
 Generates structured CSV datasets from public market research.
 """
 
-import csv, os, json, random
+import csv
+import random
 from pathlib import Path
 
 RAW_DIR = Path(__file__).parent

@@ -4,13 +4,15 @@ PH Coffee Shop Market Intelligence — Data Pipeline
 Loads raw CSVs → cleans → transforms → analysis → exports processed data.
 """
 
-import pandas as pd
-import numpy as np
-import plotly.express as px
-import plotly.graph_objects as go
-from pathlib import Path
 import json
 import warnings
+from pathlib import Path
+
+import numpy as np
+import pandas as pd
+import plotly.express as px
+import plotly.graph_objects as go
+
 warnings.filterwarnings("ignore")
 
 RAW = Path("data/raw")
@@ -87,11 +89,11 @@ def build_visualizations(df_market, df_comp, df_geo, price_agg, df_region, df_pr
     fig1 = px.line(df_market, x="year", y="market_size_billion_usd",
                    title="PH Coffee Market Size (Billion USD)",
                    markers=True, template="plotly_white")
-    fig1.update_traces(line=dict(width=3, color="#4A2C2A"))
-    fig1.update_layout(yaxis_title="Billion USD", xaxis=dict(dtick=1),
-                       annotations=[dict(x=2025, y=df_market.iloc[6]["market_size_billion_usd"],
-                                         text=f"${df_market.iloc[6]['market_size_billion_usd']:.2f}B", showarrow=True,
-                                         font=dict(size=12))])
+    fig1.update_traces(line={"width": 3, "color": "#4A2C2A"})
+    fig1.update_layout(yaxis_title="Billion USD", xaxis={"dtick": 1},
+                       annotations=[{"x": 2025, "y": df_market.iloc[6]["market_size_billion_usd"],
+                                         "text": f"${df_market.iloc[6]['market_size_billion_usd']:.2f}B", "showarrow": True,
+                                         "font": {"size": 12}}])
     fig1.write_html(VIZ / "v1_market_size.html")
     print("  ✓ V1: Market size trend")
 
@@ -99,8 +101,8 @@ def build_visualizations(df_market, df_comp, df_geo, price_agg, df_region, df_pr
     fig2 = px.line(df_market, x="year", y="cafes_bars_sales_billion_usd",
                    title="Café & Bar Sales (Billion USD)",
                    markers=True, template="plotly_white")
-    fig2.update_traces(line=dict(width=3, color="#8B4513"))
-    fig2.update_layout(yaxis_title="Billion USD", xaxis=dict(dtick=1))
+    fig2.update_traces(line={"width": 3, "color": "#8B4513"})
+    fig2.update_layout(yaxis_title="Billion USD", xaxis={"dtick": 1})
     fig2.write_html(VIZ / "v2_cafe_sales.html")
     print("  ✓ V2: Café/bar sales")
 
@@ -108,7 +110,6 @@ def build_visualizations(df_market, df_comp, df_geo, price_agg, df_region, df_pr
     comp_df = df_comp.melt(id_vars=["chain"], value_vars=["stores_2024", "stores_2025"],
                             var_name="year", value_name="stores")
     comp_df["year"] = comp_df["year"].str.replace("stores_", "")
-    colors = ["#1a1a2e", "#16213e", "#0f3460", "#e94560", "#533483", "#f39c12", "#27ae60", "#8e44ad"]
     fig3 = px.bar(comp_df, x="chain", y="stores", color="year",
                   barmode="group", title="Store Count by Chain: 2024 vs 2025",
                   template="plotly_white", color_discrete_sequence=["#8B4513", "#D2B48C"])
@@ -200,12 +201,12 @@ def build_visualizations(df_market, df_comp, df_geo, price_agg, df_region, df_pr
     fig10 = go.Figure()
     fig10.add_trace(go.Scatter(x=df_prod["year"], y=df_prod["production_tons"],
                                 mode="lines+markers", name="Production",
-                                line=dict(color="#8B4513", width=3)))
+                                line={"color": "#8B4513", "width": 3}))
     fig10.add_trace(go.Scatter(x=df_prod["year"], y=df_prod["imports_tons"],
                                 mode="lines+markers", name="Imports",
-                                line=dict(color="#1a1a2e", width=3)))
+                                line={"color": "#1a1a2e", "width": 3}))
     fig10.update_layout(title="Coffee Production vs Imports (Tons)",
-                        template="plotly_white", yaxis_title="Tons", xaxis=dict(dtick=1))
+                        template="plotly_white", yaxis_title="Tons", xaxis={"dtick": 1})
     fig10.write_html(VIZ / "v10_production_imports.html")
     print("  ✓ V10: Production vs imports")
 
@@ -213,8 +214,8 @@ def build_visualizations(df_market, df_comp, df_geo, price_agg, df_region, df_pr
     fig11 = px.line(df_market, x="year", y="total_coffee_outlets_estimate",
                     title="PH Coffee Outlets (Estimated Total)",
                     markers=True, template="plotly_white")
-    fig11.update_traces(line=dict(width=3, color="#2E8B57"))
-    fig11.update_layout(yaxis_title="Outlets", xaxis=dict(dtick=1))
+    fig11.update_traces(line={"width": 3, "color": "#2E8B57"})
+    fig11.update_layout(yaxis_title="Outlets", xaxis={"dtick": 1})
     fig11.write_html(VIZ / "v11_outlets_forecast.html")
     print("  ✓ V11: Outlets forecast")
 
@@ -249,7 +250,7 @@ def build_visualizations(df_market, df_comp, df_geo, price_agg, df_region, df_pr
                             "Local Mid-Range": "#e94560",
                             "Regional Value": "#0f3460"
                         })
-    fig13.update_traces(textposition="top center", marker=dict(sizemin=8))
+    fig13.update_traces(textposition="top center", marker={"sizemin": 8})
     fig13.update_layout(xaxis_title="Avg Cup Price (PHP)", yaxis_title="Stores (2025)")
     fig13.add_hline(y=100, line_dash="dash", line_color="gray", opacity=0.3)
     fig13.add_vline(x=100, line_dash="dash", line_color="gray", opacity=0.3)
